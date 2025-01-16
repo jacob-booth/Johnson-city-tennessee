@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "shops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "hours": {
+            "type": "object",
+            "properties": {
+              "monday": {
+                "type": "string"
+              },
+              "tuesday": {
+                "type": "string"
+              },
+              "wednesday": {
+                "type": "string"
+              },
+              "thursday": {
+                "type": "string"
+              },
+              "friday": {
+                "type": "string"
+              },
+              "saturday": {
+                "type": "string"
+              },
+              "sunday": {
+                "type": "string"
+              }
+            },
+            "required": ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "website": {
+                "type": "string",
+                "format": "uri"
+              },
+              "social_media": {
+                "type": "object",
+                "properties": {
+                  "facebook": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "instagram": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "twitter": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": ["name", "category", "address", "coordinates", "hours", "contact", "features", "last_updated", "verified"]
+      }
+    }
+  },
+  "required": ["shops"]
+}

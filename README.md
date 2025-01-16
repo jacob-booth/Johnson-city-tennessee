@@ -28,10 +28,10 @@ Discover our vibrant culinary scene, from artisanal pizzas to award-winning fast
 Explore unique boutiques, antique shops, and local treasures. [View our shopping guide](data/shops.yml)
 
 ### 📖 Local Tales
-Uncover the rich history and fascinating stories that make Johnson City unique.
+Uncover the rich history and fascinating stories that make Johnson City unique. [View our local tales](data/local_tales.yml)
 
 ### 🎭 Entertainment
-Find the best venues for live music, outdoor activities, and family fun.
+Find the best venues for live music, outdoor activities, and family fun. [View our entertainment guide](data/entertainment.yml)
 
 ### 📅 Events
 Stay updated with our comprehensive events calendar. [View upcoming events](data/events.yml)
@@ -40,7 +40,20 @@ Stay updated with our comprehensive events calendar. [View upcoming events](data
 - 🗺️ Interactive Maps: Scan QR codes for location-based guidance
 - 📱 Mobile-Friendly: Access information on the go
 - 🔍 Search Function: Find exactly what you're looking for
-- 📅 Real-Time Updates: Always current with local happenings
+
+## Self-Improving Mechanism
+This repository is equipped with a self-improving mechanism to continuously find and add relevant information about Johnson City. The process includes:
+
+- **GitHub Actions Workflow**: Runs daily at midnight to fetch and update data.
+- **`update_guide.py` Script**: Fetches data from reliable sources, validates it, and updates the appropriate sections in the `data` directory.
+
+### How It Works
+1. **Fetch Data**: The script fetches data from APIs and other reliable sources.
+2. **Validate Data**: Ensures the information is accurate and not duplicated.
+3. **Update Data**: Automatically integrates new entries into the appropriate sections of the database.
+
+## Real-Time Updates
+Always current with local happenings.
 
 ## Contributing
 We welcome contributions from the community! Whether you're adding a new restaurant, updating event information, or sharing a local story, check out our [Contributing Guidelines](CONTRIBUTING.md).

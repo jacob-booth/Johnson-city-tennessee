@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "time": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "object",
+            "properties": {
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "website": {
+                "type": "string",
+                "format": "uri"
+              },
+              "social_media": {
+                "type": "object",
+                "properties": {
+                  "facebook": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "instagram": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "twitter": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": ["name", "description", "location", "date", "time", "contact", "features", "last_updated", "verified"]
+      }
+    }
+  },
+  "required": ["events"]
+}
