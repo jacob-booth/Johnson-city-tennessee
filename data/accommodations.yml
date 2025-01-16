@@ -1,0 +1,16 @@
+accommodations:
+  - name: "Johnson City Inn"
+    type: "Hotel"
+    address: "456 Main St, Johnson City, TN 37601"
+    phone: "(423) 555-1234"
+    website: "https://www.johnsoncityinn.com/"
+    price_range: "$$$"
+    amenities:
+      - "Free WiFi"
+      - "On-site gym"
+      - "Pet-friendly"
+    rating: 4.5
+    reviews: 500
+    description: "A modern hotel with a fitness center and pet-friendly rooms, located in the heart of Johnson City."
+    special_notes: "Book in advance for a discounted rate."
+    image_url: "https://example.com/johnson_city_inn.jpg"
