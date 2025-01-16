@@ -1,0 +1,47 @@
+restaurants:
+  - name: Main Street Pizza Company
+    cuisine: Artisanal pizza, farm-to-table ingredients
+    must_try: The "Appalachian" - smoked sausage, caramelized onions, honey drizzle
+    insider_tip: Visit during happy hour for discounted drinks and appetizers
+    category: Pizza & Italian
+    price_range: $$
+    features:
+      - Local ingredients
+      - Craft beer selection
+      - Outdoor seating
+
+  - name: Label
+    cuisine: Upscale burgers and sushi
+    signature_item: Wagyu burger with truffle fries
+    ambiance: Industrial chic with cozy lighting
+    category: American & Asian Fusion
+    price_range: $$$
+    features:
+      - Full bar
+      - Weekend brunch
+      - Modern atmosphere
+
+  - name: Pal's Sudden Service
+    cuisine: Quick and affordable comfort food
+    local_favorite: Frenchie fries and peach tea
+    fun_fact: First fast-food chain to win the Malcolm Baldrige National Quality Award
+    category: Fast Food
+    price_range: $
+    features:
+      - Drive-through
+      - Quick service
+      - Local institution
+
+seasonal_hotspots:
+  - name: Food Truck Fridays
+    location: Founders Park
+    season: April–October
+    description: Various food trucks featuring diverse cuisines
+
+  - name: Oktoberfest at BURG'r & Barrel
+    season: October
+    features:
+      - Pretzels
+      - Beer cheese
+      - Seasonal brews
+    description: Annual celebration of German cuisine and craft beer

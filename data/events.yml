@@ -1,0 +1,77 @@
+annual_events:
+  - name: New Year's Day Polar Plunge
+    location: Boone Lake
+    month: January
+    description: Annual community event where participants brave the cold water
+    features:
+      - Hot chocolate station
+      - Commemorative t-shirts
+      - Charity fundraising
+
+  - name: Shamrock Shuffle 5K
+    month: March
+    description: St. Patrick's Day themed running event
+    features:
+      - Family-friendly course
+      - Post-race celebration
+      - Costume contest
+
+  - name: Blue Plum Festival
+    month: June
+    description: Arts, music, and food trucks galore
+    features:
+      - Live music stages
+      - Local artisan market
+      - Food vendor alley
+      - Kids' activities zone
+
+  - name: Oktoberfest Downtown JC
+    month: October
+    description: German-inspired fall festival
+    features:
+      - Craft beer garden
+      - Traditional German food
+      - Live music and dancing
+      - Local vendor marketplace
+
+  - name: Christmas in the Park
+    month: December
+    description: Holiday celebration with market
+    features:
+      - Holiday light display
+      - Local craft vendors
+      - Photos with Santa
+      - Hot beverage station
+
+seasonal_activities:
+  spring:
+    - name: Downtown Garden Tour
+      season: Spring
+      description: Self-guided tour of downtown gardens
+
+  summer:
+    - name: Founders Park Concert Series
+      season: Summer
+      description: Weekly outdoor concerts
+      schedule: Thursday evenings
+
+  fall:
+    - name: Buffalo Mountain Fall Colors Hike
+      season: Fall
+      description: Guided hiking tours during peak foliage
+
+  winter:
+    - name: Holiday Light Trail
+      season: Winter
+      description: Self-guided tour of holiday light displays
+
+community_events:
+  - name: Food Truck Friday
+    frequency: Weekly (April-October)
+    location: Founders Park
+    description: Various food trucks and live music
+
+  - name: Farmers Market
+    frequency: Weekly (May-October)
+    location: Downtown
+    description: Local produce and crafts market

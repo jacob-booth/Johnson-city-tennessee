@@ -1,0 +1,54 @@
+shops:
+  - name: Mojo Skateboard Shop
+    category: Sports & Recreation
+    description: Trendy skateboards, apparel, and accessories
+    highlights:
+      - Exclusive early 2000s-inspired T-shirts
+      - Skateboarding events
+      - Local community hub
+    target_audience: Skateboarding enthusiasts
+    price_range: $$
+    features:
+      - Custom skateboard assembly
+      - Local artist collaborations
+      - Skating gear rentals
+
+  - name: The Willow Tree
+    category: Boutique
+    description: Boutique clothing and curated artisan goods
+    highlights:
+      - Handmade jewelry by local artists
+      - Unique fashion pieces
+      - Seasonal collections
+    target_audience: Fashion-conscious shoppers
+    price_range: $$$
+    features:
+      - Personal styling services
+      - Local artisan showcase
+      - Gift wrapping
+
+  - name: Treasure Hunt Antique Mall
+    category: Antiques & Vintage
+    description: Vast collection of antiques and vintage items
+    highlights:
+      - Mid-century furniture
+      - Vintage vinyl records
+      - Collectible items
+    target_audience: Collectors and nostalgia-seekers
+    price_range: $$
+    features:
+      - Multiple vendors
+      - Regular inventory updates
+      - Expert appraisals available
+
+specialty_shops:
+  - name: Local Art Gallery
+    focus: Regional artists
+    events: First Friday art walks
+
+  - name: Farmers Market
+    schedule: Saturdays, May-October
+    highlights:
+      - Local produce
+      - Artisanal foods
+      - Handcrafted goods
