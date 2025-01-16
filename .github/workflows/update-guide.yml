@@ -22,10 +22,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install requests
+        pip install yamllint
 
     - name: Fetch and update data
       run: |
         python update_guide.py
+        yamllint data/
 
     - name: Commit and push changes
       run: |
