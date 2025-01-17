@@ -72,17 +72,63 @@ This repository is equipped with a self-improving mechanism to continuously find
 
 ## Data Sources
 We source our data from reliable APIs and web pages to ensure accuracy and up-to-date information. Here are the sources for each category:
-- **Restaurants**: [API Example](https://api.example.com/restaurants)
-- **Shops**: [API Example](https://api.example.com/shops)
-- **Events**: [API Example](https://api.example.com/events)
-- **Local Tales**: [API Example](https://api.example.com/local_tales)
-- **Entertainment**: [API Example](https://api.example.com/entertainment)
-- **Accommodations**: [API Example](https://api.example.com/accommodations)
-- **Transportation**: [API Example](https://api.example.com/transportation)
-- **Parks and Recreational Areas**: [API Example](https://api.example.com/parks_recreation)
-- **Cultural Landmarks**: [API Example](https://api.example.com/cultural_landmarks)
-- **Healthcare**: [API Example](https://api.example.com/healthcare)
-- **Education**: [API Example](https://api.example.com/education)
+
+### Local APIs and Datasets
+
+Johnson City's GIS division offers a range of publicly accessible datasets through their Open Data portal. These datasets can be utilized to extract detailed information about various aspects of the city.
+
+#### Restaurants and Shops
+- **Johnson City Open Data Portal**
+  Description: Provides datasets including business locations, shopping centers, and more within Johnson City.
+  Link: [Johnson City Open Data Portal](https://datahub-jctngis.opendata.arcgis.com/)
+
+#### Events
+- **Downtown Johnson City Events**
+  Description: Offers information on upcoming events, festivals, and activities in downtown Johnson City.
+  Link: [Downtown Johnson City Events](https://www.downtownjctn.com/events/list)
+
+#### Parks and Recreational Areas
+- **Johnson City Parks and Recreation Data**
+  Description: Contains information about parks, trails, and recreational facilities in Johnson City.
+  Link: [Johnson City Parks and Recreation Data](https://datahub-jctngis.opendata.arcgis.com/)
+
+#### Cultural Landmarks
+- **Johnson City Historic Sites**
+  Description: Provides data on historical sites and cultural landmarks within the city.
+  Link: [Johnson City Historic Sites](https://datahub-jctngis.opendata.arcgis.com/)
+
+### Global and General-Purpose APIs
+
+In addition to local datasets, integrating global APIs can enrich the repository with dynamic and real-time information.
+
+#### Restaurants and Shops
+- **Yelp Fusion API**
+  Description: Provides business details, reviews, and ratings for restaurants and shops.
+  Link: [Yelp Fusion API](https://www.yelp.com/developers/documentation/v3)
+
+- **Google Places API**
+  Description: Offers detailed information about places, including names, addresses, ratings, and reviews.
+  Link: [Google Places API](https://developers.google.com/maps/documentation/places/web-service/overview)
+
+#### Events
+- **Eventbrite API**
+  Description: Access to a wide range of events, including location-based searches and event details.
+  Link: [Eventbrite API](https://www.eventbrite.com/platform/api)
+
+#### Transportation
+- **Here Maps API**
+  Description: Provides comprehensive transportation data, including public transit, traffic information, and routing.
+  Link: [Here Maps API](https://developer.here.com/documentation)
+
+#### Accommodations
+- **Airbnb API**
+  Description: Offers data on accommodation listings, including availability, pricing, and location details.
+  Link: [Airbnb API](https://rapidapi.com/apidojo/api/airbnb13/)
+
+#### Weather
+- **OpenWeatherMap API**
+  Description: Provides current weather data, forecasts, and historical data for any location.
+  Link: [OpenWeatherMap API](https://openweathermap.org/api)
 
 ## Real-Time Updates
 Always current with local happenings.

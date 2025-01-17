@@ -1,47 +1,105 @@
+Entries:
+- Description: Italian restaurant. 4.4 stars. $$. 2927 N Roan St
+  Name: Bella Vita
+  last_updated: '2025-01-16 23:07:02'
+- Description: New American restaurant. 4.5 stars. $$. 1805 N Roan St
+  Name: Cafe Lola
+  last_updated: '2025-01-16 23:07:02'
+- Description: Sushi Bars restaurant. 4.1 stars. $$. 111 Broyles St
+  Name: Cafe One 11
+  last_updated: '2025-01-16 23:07:02'
+- Description: Pizza restaurant. 3.9 stars. $$. 2715 N Roan St
+  Name: Cootie Brown's
+  last_updated: '2025-01-16 23:07:02'
+- Description: Mexican restaurant. 4 stars. $$. 1805 W State Of Franklin Rd
+  Name: El Charolais
+  last_updated: '2025-01-16 23:07:02'
+- Description: German restaurant. 4.2 stars. $$. 203 E Main St
+  Name: Freiberg's German Restaurant
+  last_updated: '2025-01-16 23:07:02'
+- Description: New American restaurant. 4.3 stars. $$$. 214 E Mountcastle Dr
+  Name: Gourmet & Co
+  last_updated: '2025-01-16 23:07:02'
+- Description: Cocktail Bars restaurant. 4.5 stars. $$$. 1033 W Oakland Ave
+  Name: Juniper
+  last_updated: '2025-01-16 23:07:02'
+- Description: Sushi Bars restaurant. 4.1 stars. $$. 112 Tipton St
+  Name: Label Restaurant
+  last_updated: '2025-01-16 23:07:02'
+- Description: Breakfast & Brunch restaurant. 4.5 stars. $$. 1033 Hamilton Place Dr
+  Name: Maple Street Biscuit Company - Johnson City
+  last_updated: '2025-01-16 23:07:02'
+- Description: Sandwiches restaurant. 4.3 stars. $$. 106 S Commerce St
+  Name: Mid City Grill
+  last_updated: '2025-01-16 23:07:02'
+- Description: Barbeque restaurant. 4.7 stars. . 3301 N Roan St
+  Name: Project BBQ JC
+  last_updated: '2025-01-16 23:07:02'
+- Description: Mediterranean restaurant. 4.5 stars. $$. 109 Buffalo St
+  Name: Red Meze Downtown
+  last_updated: '2025-01-16 23:07:02'
+- Description: Indian restaurant. 4.4 stars. $$. 1803 W Market St
+  Name: Sahib
+  last_updated: '2025-01-16 23:07:02'
+- Description: Pizza restaurant. 4.5 stars. $$. 100 E Unaka Ave
+  Name: Scratch Brick Oven
+  last_updated: '2025-01-16 23:07:02'
+- Description: Southern restaurant. 4.3 stars. $$. 601 Spring St
+  Name: Southern Craft
+  last_updated: '2025-01-16 23:07:02'
+- Description: Coffee & Tea restaurant. 4.6 stars. $$. 600 N State Of Franklin Rd
+  Name: The Roots Vietnamese Restaurant & Coffee
+  last_updated: '2025-01-16 23:07:02'
+- Description: Bars restaurant. 4.5 stars. $$. 415 W Walnut St
+  Name: Timber!
+  last_updated: '2025-01-16 23:07:02'
+- Description: Teppanyaki restaurant. 4.1 stars. $$. 3020 Franklin Ter
+  Name: Yuimaru Kitchen
+  last_updated: '2025-01-16 23:07:02'
+- Description: Asian Fusion restaurant. 4.4 stars. . 2904 Bristol Hwy
+  Name: iEat by ChopstiXpress
+  last_updated: '2025-01-16 23:07:02'
+last_updated: '2025-01-16 23:07:02'
 restaurants:
-  - name: Main Street Pizza Company
-    cuisine: Artisanal pizza, farm-to-table ingredients
-    must_try: The "Appalachian" - smoked sausage, caramelized onions, honey drizzle
-    insider_tip: Visit during happy hour for discounted drinks and appetizers
-    category: Pizza & Italian
-    price_range: $$
-    features:
-      - Local ingredients
-      - Craft beer selection
-      - Outdoor seating
-
-  - name: Label
-    cuisine: Upscale burgers and sushi
-    signature_item: Wagyu burger with truffle fries
-    ambiance: Industrial chic with cozy lighting
-    category: American & Asian Fusion
-    price_range: $$$
-    features:
-      - Full bar
-      - Weekend brunch
-      - Modern atmosphere
-
-  - name: Pal's Sudden Service
-    cuisine: Quick and affordable comfort food
-    local_favorite: Frenchie fries and peach tea
-    fun_fact: First fast-food chain to win the Malcolm Baldrige National Quality Award
-    category: Fast Food
-    price_range: $
-    features:
-      - Drive-through
-      - Quick service
-      - Local institution
-
+- category: Pizza & Italian
+  cuisine: Artisanal pizza, farm-to-table ingredients
+  features:
+  - Local ingredients
+  - Craft beer selection
+  - Outdoor seating
+  insider_tip: Visit during happy hour for discounted drinks and appetizers
+  must_try: The "Appalachian" - smoked sausage, caramelized onions, honey drizzle
+  name: Main Street Pizza Company
+  price_range: $$
+- ambiance: Industrial chic with cozy lighting
+  category: American & Asian Fusion
+  cuisine: Upscale burgers and sushi
+  features:
+  - Full bar
+  - Weekend brunch
+  - Modern atmosphere
+  name: Label
+  price_range: $$$
+  signature_item: Wagyu burger with truffle fries
+- category: Fast Food
+  cuisine: Quick and affordable comfort food
+  features:
+  - Drive-through
+  - Quick service
+  - Local institution
+  fun_fact: First fast-food chain to win the Malcolm Baldrige National Quality Award
+  local_favorite: Frenchie fries and peach tea
+  name: Pal's Sudden Service
+  price_range: $
 seasonal_hotspots:
-  - name: Food Truck Fridays
-    location: Founders Park
-    season: April–October
-    description: Various food trucks featuring diverse cuisines
-
-  - name: Oktoberfest at BURG'r & Barrel
-    season: October
-    features:
-      - Pretzels
-      - Beer cheese
-      - Seasonal brews
-    description: Annual celebration of German cuisine and craft beer
+- description: Various food trucks featuring diverse cuisines
+  location: Founders Park
+  name: Food Truck Fridays
+  season: April–October
+- description: Annual celebration of German cuisine and craft beer
+  features:
+  - Pretzels
+  - Beer cheese
+  - Seasonal brews
+  name: Oktoberfest at BURG'r & Barrel
+  season: October

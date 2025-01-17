@@ -15,6 +15,9 @@ Path(DATA_DIR).mkdir(exist_ok=True)
 MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds
 
+# API base URL
+API_BASE_URL = 'http://localhost:3000/api'
+
 def _validate_data(file_path):
     """
     Validates the data in the given YAML file to ensure all entries have the required fields.
@@ -56,9 +59,6 @@ def fetch_data_with_retry(url, fetch_func, max_retries=MAX_RETRIES, delay=RETRY_
             print(f"Attempt {attempt + 1} failed: {e}. Retrying in {delay} seconds...")
             time.sleep(delay)
 
-import json
-import subprocess
-
 # Default data templates for when API calls fail
 DEFAULT_DATA = {
     'restaurants': [],
@@ -68,106 +68,48 @@ DEFAULT_DATA = {
     'cultural_landmarks': []
 }
 
-# Removed unused function
-
 def fetch_data_from_api(source):
     """Fetch data from API"""
     try:
         if source == 'restaurants':
-            json_str = r'{"term":"","limit":20}'
-            sys.stdout.write("""<use_mcp_tool>
-<server_name>johnson-city-api</server_name>
-<tool_name>search_restaurants</tool_name>
-<arguments>""")
-            sys.stdout.write(json_str)
-            sys.stdout.write("""</arguments>
-</use_mcp_tool>
-""")
-            sys.stdout.flush()
-            response = sys.stdin.readline().strip()
-            try:
-                data = json.loads(response)
-                return [{'Name': r['name'],
-                        'Description': f"{r.get('categories', [{'title': ''}])[0]['title']} restaurant. {r.get('rating', '')} stars. {r.get('price', '')}. {r.get('location', {}).get('address1', '')}"}
-                        for r in data]
-            except Exception as e:
-                sys.stderr.write(f"Failed to parse response: {response}\n")
-                sys.stderr.write(f"Error: {str(e)}\n")
-                return []
+            response = requests.get(f'{API_BASE_URL}/restaurants', params={'term': '', 'limit': 20})
+            response.raise_for_status()
+            data = response.json()
+            return [{'Name': r['name'],
+                    'Description': f"{r.get('categories', [{'title': ''}])[0]['title']} restaurant. {r.get('rating', '')} stars. {r.get('price', '')}. {r.get('location', {}).get('address1', '')}"}
+                    for r in data]
         
         elif source == 'shops':
-            json_str = r'{"term":"retail","limit":20}'
-            sys.stdout.write("""<use_mcp_tool>
-<server_name>johnson-city-api</server_name>
-<tool_name>search_shops</tool_name>
-<arguments>""")
-            sys.stdout.write(json_str)
-            sys.stdout.write("""</arguments>
-</use_mcp_tool>
-""")
-            sys.stdout.flush()
-            response = sys.stdin.readline().strip()
-            try:
-                data = json.loads(response)
-                return [{'Name': s['name'],
-                        'Description': f"{s.get('categories', [{'title': ''}])[0]['title']} shop. {s.get('rating', '')} stars. {s.get('price', '')}. {s.get('location', {}).get('address1', '')}"}
-                        for s in data]
-            except Exception as e:
-                sys.stderr.write(f"Failed to parse response: {response}\n")
-                sys.stderr.write(f"Error: {str(e)}\n")
-                return []
+            response = requests.get(f'{API_BASE_URL}/shops', params={'term': 'retail', 'limit': 20})
+            response.raise_for_status()
+            data = response.json()
+            return [{'Name': s['name'],
+                    'Description': f"{s.get('categories', [{'title': ''}])[0]['title']} shop. {s.get('rating', '')} stars. {s.get('price', '')}. {s.get('location', {}).get('address1', '')}"}
+                    for s in data]
         
         elif source == 'events':
-            json_str = f'{{"q":"","start_date":"{time.strftime("%Y-%m-%d")}"}}' # Double braces for literal braces
-            sys.stdout.write("""<use_mcp_tool>
-<server_name>johnson-city-api</server_name>
-<tool_name>search_events</tool_name>
-<arguments>""")
-            sys.stdout.write(json_str)
-            sys.stdout.write("""</arguments>
-</use_mcp_tool>
-""")
-            sys.stdout.flush()
-            response = sys.stdin.readline().strip()
-            try:
-                data = json.loads(response)
-                return [{'Name': e['name'],
-                        'Description': e.get('description', '')}
-                        for e in data]
-            except Exception as e:
-                sys.stderr.write(f"Failed to parse response: {response}\n")
-                sys.stderr.write(f"Error: {str(e)}\n")
-                return []
+            response = requests.get(f'{API_BASE_URL}/events', params={'q': '', 'start_date': time.strftime("%Y-%m-%d")})
+            response.raise_for_status()
+            data = response.json()
+            return [{'Name': e['name'],
+                    'Description': e.get('description', '')}
+                    for e in data]
         
         elif source in ['parks_recreation', 'cultural_landmarks']:
-            json_str = '{"limit":10}'
-            sys.stdout.write("""<use_mcp_tool>
-<server_name>johnson-city-api</server_name>
-<tool_name>get_parks</tool_name>
-<arguments>""")
-            sys.stdout.write(json_str)
-            sys.stdout.write("""</arguments>
-</use_mcp_tool>
-""")
-            sys.stdout.flush()
-            response = sys.stdin.readline().strip()
-            try:
-                data = json.loads(response)
-                parks = data
-                if source == 'cultural_landmarks':
-                    # Filter for historic sites
-                    parks = [p for p in parks if 'Historic' in p.get('designation', '')]
-                return [{'Name': p['fullName'],
-                        'Description': p.get('description', '')}
-                        for p in parks]
-            except Exception as e:
-                sys.stderr.write(f"Failed to parse response: {response}\n")
-                sys.stderr.write(f"Error: {str(e)}\n")
-                return []
+            response = requests.get(f'{API_BASE_URL}/parks', params={'limit': 10})
+            response.raise_for_status()
+            data = response.json()
+            parks = data
+            if source == 'cultural_landmarks':
+                # Filter for historic sites
+                parks = [p for p in parks if 'Historic' in p.get('designation', '')]
+            return [{'Name': p['fullName'],
+                    'Description': p.get('description', '')}
+                    for p in parks]
         
         return []
     except Exception as e:
-        sys.stderr.write(f"Error fetching {source} data: {e}\n")
+        print(f"Error fetching {source} data: {e}")
         return DEFAULT_DATA[source]
 
 def fetch_data_from_web(source_url):

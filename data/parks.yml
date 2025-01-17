@@ -1,0 +1,32 @@
+- name: Founders Park
+  description: Large urban park with walking trails, event spaces, and a children's playground.
+  address: 121 Spring St, Johnson City, TN 37604
+  amenities:
+    - Picnic areas
+    - Outdoor amphitheater
+    - Splash pad
+    - Skate park
+  events:
+    - Food Truck Fridays
+    - Founders Park Concert Series
+
+- name: Buffalo Mountain Park
+  description: Scenic nature preserve with hiking trails and stunning views.
+  address: 1212 Buffalo Rd, Johnson City, TN 37604
+  amenities:
+    - Hiking trails
+    - Picnic shelters
+    - Visitor center
+  events:
+    - Buffalo Mountain Fall Colors Hike
+
+- name: Winged Deer Park
+  description: Large park with sports facilities, a lake, and a nature center.
+  address: 4137 Bristol Hwy, Johnson City, TN 37601
+  amenities:
+    - Baseball/softball fields
+    - Soccer fields
+    - Fishing lake
+    - Nature center
+  events:
+    - Winged Deer Park Fishing Derby
