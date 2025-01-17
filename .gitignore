@@ -1,4 +1,5 @@
-# Hide update system components
+# Hide ALL development and system components
+*.py
 update_guide.py
 /src/
 /logs/
@@ -8,6 +9,15 @@ requirements.txt
 api/.env
 api/index.js
 .github/workflows/
+
+# Hide all backup data
+data/backup_*/
+
+# Hide all configuration
+*.config.*
+config/
+**/config/
+*.cfg
 
 # Python
 __pycache__/
@@ -43,12 +53,20 @@ yarn-error.log*
 .vscode/
 *.swp
 *.swo
+*.sublime-*
+*.iml
+.project
+.settings/
+.classpath
 
 # OS
 .DS_Store
 Thumbs.db
+*.tmp
+*.bak
+*~
 
-# Keep data files visible
+# Keep only public data and documentation
 !data/*.yml
 !README.md
 !CHANGELOG.md
@@ -60,3 +78,11 @@ Thumbs.db
 # Hide all .github workflows except public ones
 .github/workflows/*
 !.github/workflows/ci.yml
+
+# Hide all API implementation details
+api/*
+!api/README.md
+
+# Hide all schemas and validation
+schemas/
+validation/
