@@ -1,0 +1,9 @@
+2025-01-17 01:43:59,419 - JohnsonCityGuide - INFO - Starting guide update process
+2025-01-17 01:43:59,419 - JohnsonCityGuide - ERROR - Error: Missing environment variable: YELP_API_KEY
+NoneType: None
+2025-01-17 01:43:59,419 - JohnsonCityGuide - ERROR - Error: Missing environment variable: EVENTBRITE_API_KEY
+NoneType: None
+2025-01-17 01:43:59,419 - JohnsonCityGuide - ERROR - Error: Missing environment variable: NPS_API_KEY
+NoneType: None
+2025-01-17 01:43:59,420 - JohnsonCityGuide - INFO - Update process completed in 0:00:00.000800
+2025-01-17 01:43:59,421 - JohnsonCityGuide - INFO - Metrics saved to metrics\daily_stats.json

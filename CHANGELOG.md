@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [2025-01-17]
+
+### Changed
+- Updated 20 entries in restaurants
+- Updated 20 entries in shops
+
 ### Added
 - Initial data files for "Local Tales" (`data/local_tales.yml`) and "Entertainment" (`data/entertainment.yml`).
 

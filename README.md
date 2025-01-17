@@ -1,5 +1,7 @@
 # 🌟 Johnson City Guide
 
+Last Updated: 2025-01-17 01:44:34
+
 ![Johnson City Banner](assets/banners/header.png)
 
 Welcome to the ultimate guide to Johnson City, Tennessee—where rich history meets modern innovation. Nestled in the foothills of the Appalachian Mountains, this vibrant city offers a unique blend of small-town charm and dynamic growth.
