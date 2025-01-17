@@ -1,0 +1,112 @@
+Entries:
+- Description: Accessories shop. 5 stars. . 106 Tipton St
+  Name: Azlinn Hope
+  last_updated: '2025-01-16 23:07:03'
+- Description: Shoe Stores shop. 4.5 stars. $. 1805 N Roan St
+  Name: Beaty Shoes
+  last_updated: '2025-01-16 23:07:03'
+- Description: Shoe Stores shop. 4.5 stars. . 2011 N Roan St
+  Name: DSW Designer Shoe Warehouse
+  last_updated: '2025-01-16 23:07:03'
+- Description: Furniture Stores shop. 2.2 stars. $$$. 3207 N Roan St
+  Name: Factory Direct Furniture
+  last_updated: '2025-01-16 23:07:03'
+- Description: Furniture Stores shop. 4.4 stars. $$. 112 Foy Fitch Ln
+  Name: Furniture Row
+  last_updated: '2025-01-16 23:07:03'
+- Description: Women's Clothing shop. 3.7 stars. $. 112 Sunset Dr
+  Name: Gabe's
+  last_updated: '2025-01-16 23:07:03'
+- Description: Holiday Decorations shop. 5 stars. . 117 East Main St
+  Name: Gabriel's Christmas & More
+  last_updated: '2025-01-16 23:07:03'
+- Description: Countertop Installation shop. 5 stars. . 3314 W Market St
+  Name: Granite & Quartz Design
+  last_updated: '2025-01-16 23:07:03'
+- Description: Jewelry shop. 3 stars. . 2111 West Mountcastle Dr
+  Name: Gregory Isbell Jewelers
+  last_updated: '2025-01-16 23:07:03'
+- Description: Guitar Stores shop. 1 stars. . 3023 Peoples St
+  Name: Guitar Center
+  last_updated: '2025-01-16 23:07:03'
+- Description: Hardware Stores shop. 3 stars. . 3302 West Market St
+  Name: Harbor Freight Tools
+  last_updated: '2025-01-16 23:07:03'
+- Description: Bikes shop. 5 stars. . 718 E Center St
+  Name: Just Ride Bikes and Fitness
+  last_updated: '2025-01-16 23:07:03'
+- Description: Sporting Goods shop. 3.6 stars. $$. 830 Sunset Dr
+  Name: Mahoney's
+  last_updated: '2025-01-16 23:07:03'
+- Description: Hobby Shops shop. 2.6 stars. . 85 Buffalo St
+  Name: Mel's Stamps & Coins
+  last_updated: '2025-01-16 23:07:03'
+- Description: Furniture Stores shop. 5 stars. . 519 E Elk Ave
+  Name: Ritchie's Furniture & Appliance
+  last_updated: '2025-01-16 23:07:03'
+- Description: Art Galleries shop. 5 stars. . 1305 North Roan St
+  Name: Robin's On Roan
+  last_updated: '2025-01-16 23:07:03'
+- Description: Cosmetics & Beauty Supply shop. 3 stars. $$. 3211 Peoples St
+  Name: Sally Beauty
+  last_updated: '2025-01-16 23:07:03'
+- Description: Department Stores shop. 3.2 stars. $$. 2116 N Roan St
+  Name: Target
+  last_updated: '2025-01-16 23:07:03'
+- Description: Shopping Centers shop. 3.3 stars. $$. 2011 N Roan St
+  Name: The Mall at Johnson City
+  last_updated: '2025-01-16 23:07:03'
+- Description: Bikes shop. 4.3 stars. $$$. 110 W Market St
+  Name: Trek Bicycle Johnson City
+  last_updated: '2025-01-16 23:07:03'
+last_updated: '2025-01-16 23:07:03'
+shops:
+- category: Sports & Recreation
+  description: Trendy skateboards, apparel, and accessories
+  features:
+  - Custom skateboard assembly
+  - Local artist collaborations
+  - Skating gear rentals
+  highlights:
+  - Exclusive early 2000s-inspired T-shirts
+  - Skateboarding events
+  - Local community hub
+  name: Mojo Skateboard Shop
+  price_range: $$
+  target_audience: Skateboarding enthusiasts
+- category: Boutique
+  description: Boutique clothing and curated artisan goods
+  features:
+  - Personal styling services
+  - Local artisan showcase
+  - Gift wrapping
+  highlights:
+  - Handmade jewelry by local artists
+  - Unique fashion pieces
+  - Seasonal collections
+  name: The Willow Tree
+  price_range: $$$
+  target_audience: Fashion-conscious shoppers
+- category: Antiques & Vintage
+  description: Vast collection of antiques and vintage items
+  features:
+  - Multiple vendors
+  - Regular inventory updates
+  - Expert appraisals available
+  highlights:
+  - Mid-century furniture
+  - Vintage vinyl records
+  - Collectible items
+  name: Treasure Hunt Antique Mall
+  price_range: $$
+  target_audience: Collectors and nostalgia-seekers
+specialty_shops:
+- events: First Friday art walks
+  focus: Regional artists
+  name: Local Art Gallery
+- highlights:
+  - Local produce
+  - Artisanal foods
+  - Handcrafted goods
+  name: Farmers Market
+  schedule: Saturdays, May-October

@@ -7,3 +7,79 @@ NoneType: None
 NoneType: None
 2025-01-17 01:43:59,420 - JohnsonCityGuide - INFO - Update process completed in 0:00:00.000800
 2025-01-17 01:43:59,421 - JohnsonCityGuide - INFO - Metrics saved to metrics\daily_stats.json
+2025-01-17 01:44:30,053 - JohnsonCityGuide - INFO - Starting guide update process
+2025-01-17 01:44:30,053 - JohnsonCityGuide - INFO - Environment validation successful
+2025-01-17 01:44:30,056 - JohnsonCityGuide - INFO - Created backup in data\backup_20250117_014430
+2025-01-17 01:44:31,540 - JohnsonCityGuide - INFO - API Call to /restaurants: Success (Duration: 1.40s)
+2025-01-17 01:44:31,548 - JohnsonCityGuide - INFO - Updated 20 entries in restaurants
+2025-01-17 01:44:32,655 - JohnsonCityGuide - INFO - API Call to /shops: Success (Duration: 1.11s)
+2025-01-17 01:44:32,659 - JohnsonCityGuide - INFO - Updated 20 entries in shops
+2025-01-17 01:44:33,124 - JohnsonCityGuide - INFO - API Call to /events: Success (Duration: 0.46s)
+2025-01-17 01:44:33,124 - JohnsonCityGuide - WARNING - No data received for events
+2025-01-17 01:44:33,997 - JohnsonCityGuide - INFO - API Call to /parks: Success (Duration: 0.87s)
+2025-01-17 01:44:33,999 - JohnsonCityGuide - WARNING - Validation failed for parks
+2025-01-17 01:44:34,001 - JohnsonCityGuide - INFO - Updated README.md timestamp
+2025-01-17 01:44:34,001 - JohnsonCityGuide - INFO - Updated CHANGELOG.md
+2025-01-17 01:44:34,002 - JohnsonCityGuide - WARNING - Validation errors in accommodations.yml
+2025-01-17 01:44:34,003 - JohnsonCityGuide - ERROR - Error: expected '<document start>', but found '<block sequence start>'
+  in "data\entertainment.yml", line 7, column 1
+Traceback (most recent call last):
+  File "C:\Users\mojos\Desktop\Johnson-city-tennessee\src\handlers\content_handler.py", line 134, in validate_data_file
+    data = yaml.safe_load(f)
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\composer.py", line 39, in get_single_node
+    if not self.check_event(StreamEndEvent):
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\parser.py", line 171, in parse_document_start
+    raise ParserError(None, None,
+    ...<2 lines>...
+            self.peek_token().start_mark)
+yaml.parser.ParserError: expected '<document start>', but found '<block sequence start>'
+  in "data\entertainment.yml", line 7, column 1
+2025-01-17 01:44:34,007 - JohnsonCityGuide - WARNING - Validation errors in entertainment.yml
+2025-01-17 01:44:34,010 - JohnsonCityGuide - ERROR - Error: expected '<document start>', but found '<block sequence start>'
+  in "data\local_tales.yml", line 7, column 1
+Traceback (most recent call last):
+  File "C:\Users\mojos\Desktop\Johnson-city-tennessee\src\handlers\content_handler.py", line 134, in validate_data_file
+    data = yaml.safe_load(f)
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\__init__.py", line 81, in load
+    return loader.get_single_data()
+           ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\composer.py", line 39, in get_single_node
+    if not self.check_event(StreamEndEvent):
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ~~~~~~~~~~^^
+  File "C:\Users\mojos\AppData\Local\Programs\Python\Python313\Lib\site-packages\yaml\parser.py", line 171, in parse_document_start
+    raise ParserError(None, None,
+    ...<2 lines>...
+            self.peek_token().start_mark)
+yaml.parser.ParserError: expected '<document start>', but found '<block sequence start>'
+  in "data\local_tales.yml", line 7, column 1
+2025-01-17 01:44:34,012 - JohnsonCityGuide - WARNING - Validation errors in local_tales.yml
+2025-01-17 01:44:34,014 - JohnsonCityGuide - WARNING - Validation errors in parks.yml
+2025-01-17 01:44:34,025 - JohnsonCityGuide - WARNING - Validation issues found
+2025-01-17 01:44:34,184 - JohnsonCityGuide - INFO - Changes committed: Daily Update: 2025-01-17 01:44:34
+
+Changes:
+- Updated 20 entries in restaurants
+- Updated 20 entries in shops
+2025-01-17 01:44:34,216 - JohnsonCityGuide - INFO - Created tag: update-20250117
+2025-01-17 01:44:35,623 - JohnsonCityGuide - INFO - Changes pushed to remote repository
+2025-01-17 01:44:35,623 - JohnsonCityGuide - INFO - Update cycle completed successfully
+2025-01-17 01:44:35,624 - JohnsonCityGuide - INFO - Update process completed in 0:00:05.570601
+2025-01-17 01:44:35,624 - JohnsonCityGuide - INFO - Metrics saved to metrics\daily_stats.json
