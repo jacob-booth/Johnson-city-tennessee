@@ -11,6 +11,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Updated 20 entries in restaurants
 - Updated 20 entries in shops
+- Updated 10 entries in parks
+
+## [2025-01-17]
+
+### Changed
+- Updated 20 entries in restaurants
+- Updated 20 entries in shops
 
 ## [2025-01-17]
 

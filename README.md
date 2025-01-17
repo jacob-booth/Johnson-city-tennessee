@@ -1,6 +1,6 @@
 # 🌟 Johnson City Guide
 
-Last Updated: 2025-01-17 01:45:21
+Last Updated: 2025-01-17 01:46:01
 
 ![Johnson City Banner](assets/banners/header.png)
 

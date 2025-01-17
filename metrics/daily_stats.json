@@ -1,12 +1,12 @@
 {
-  "duration": "0:00:05.570601",
+  "duration": "0:00:04.761324",
   "changes": {
     "restaurants": 20,
     "shops": 20,
     "events": 0,
     "parks": 0
   },
-  "error_count": 2,
-  "warning_count": 7,
-  "timestamp": "2025-01-17T01:44:35.624251"
+  "error_count": 0,
+  "warning_count": 5,
+  "timestamp": "2025-01-17T01:45:22.958244"
 }

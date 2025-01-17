@@ -83,3 +83,29 @@ Changes:
 2025-01-17 01:44:35,623 - JohnsonCityGuide - INFO - Update cycle completed successfully
 2025-01-17 01:44:35,624 - JohnsonCityGuide - INFO - Update process completed in 0:00:05.570601
 2025-01-17 01:44:35,624 - JohnsonCityGuide - INFO - Metrics saved to metrics\daily_stats.json
+2025-01-17 01:45:18,196 - JohnsonCityGuide - INFO - Starting guide update process
+2025-01-17 01:45:18,196 - JohnsonCityGuide - INFO - Environment validation successful
+2025-01-17 01:45:18,199 - JohnsonCityGuide - INFO - Created backup in data\backup_20250117_014518
+2025-01-17 01:45:19,400 - JohnsonCityGuide - INFO - API Call to /restaurants: Success (Duration: 1.12s)
+2025-01-17 01:45:19,405 - JohnsonCityGuide - INFO - Updated 20 entries in restaurants
+2025-01-17 01:45:20,317 - JohnsonCityGuide - INFO - API Call to /shops: Success (Duration: 0.91s)
+2025-01-17 01:45:20,321 - JohnsonCityGuide - INFO - Updated 20 entries in shops
+2025-01-17 01:45:20,674 - JohnsonCityGuide - INFO - API Call to /events: Success (Duration: 0.35s)
+2025-01-17 01:45:20,675 - JohnsonCityGuide - WARNING - No data received for events
+2025-01-17 01:45:21,354 - JohnsonCityGuide - INFO - API Call to /parks: Success (Duration: 0.68s)
+2025-01-17 01:45:21,355 - JohnsonCityGuide - WARNING - Validation failed for parks
+2025-01-17 01:45:21,356 - JohnsonCityGuide - INFO - Updated README.md timestamp
+2025-01-17 01:45:21,356 - JohnsonCityGuide - INFO - Updated CHANGELOG.md
+2025-01-17 01:45:21,357 - JohnsonCityGuide - WARNING - Validation errors in accommodations.yml
+2025-01-17 01:45:21,363 - JohnsonCityGuide - WARNING - Validation errors in parks.yml
+2025-01-17 01:45:21,383 - JohnsonCityGuide - WARNING - Validation issues found
+2025-01-17 01:45:21,507 - JohnsonCityGuide - INFO - Changes committed: Daily Update: 2025-01-17 01:45:21
+
+Changes:
+- Updated 20 entries in restaurants
+- Updated 20 entries in shops
+2025-01-17 01:45:21,541 - JohnsonCityGuide - INFO - Created tag: update-20250117
+2025-01-17 01:45:22,957 - JohnsonCityGuide - INFO - Changes pushed to remote repository
+2025-01-17 01:45:22,957 - JohnsonCityGuide - INFO - Update cycle completed successfully
+2025-01-17 01:45:22,957 - JohnsonCityGuide - INFO - Update process completed in 0:00:04.761324
+2025-01-17 01:45:22,958 - JohnsonCityGuide - INFO - Metrics saved to metrics\daily_stats.json

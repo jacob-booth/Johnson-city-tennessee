@@ -1,0 +1,16 @@
+Entries:
+  - Name: "Main Street Venue"
+    Description: "Live music venue featuring local and touring artists"
+    Type: "Live Music"
+    Location: "123 Main Street, Johnson City, TN"
+    Website: "http://example.com/venue1"
+    last_updated: "2025-01-17 01:44:40"
+
+  - Name: "Family Fun Center"
+    Description: "Indoor entertainment center with arcade games and activities"
+    Type: "Family Entertainment"
+    Location: "456 Market Street, Johnson City, TN"
+    Website: "http://example.com/venue2"
+    last_updated: "2025-01-17 01:44:40"
+
+last_updated: "2025-01-17 01:44:40"
