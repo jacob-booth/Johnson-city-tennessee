@@ -2,7 +2,7 @@ name: Update Johnson City Guide
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Run daily at midnight
+    - cron: '0 6 * * *'  # Run daily at 6:00 AM UTC (1:00 AM EST)
   workflow_dispatch:  # Allow manual triggering
 
 jobs:
@@ -12,29 +12,61 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for proper versioning
 
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: '3.9'
+        cache: 'pip'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests
-        pip install yamllint
+        pip install -r requirements.txt
+
+    - name: Create backup
+      run: |
+        timestamp=$(date +%Y%m%d_%H%M%S)
+        mkdir -p data/backup_$timestamp
+        cp data/*.yml data/backup_$timestamp/
 
     - name: Fetch and update data
       run: |
         python update_guide.py
-        yamllint data/
+      env:
+        YELP_API_KEY: ${{ secrets.YELP_API_KEY }}
+        EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
+        NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+        GIT_USERNAME: "Jacob Booth"
+        GIT_EMAIL: "contact@jacobbooth.com"
 
     - name: Commit and push changes
       run: |
-        git config --global user.name 'Cline'
-        git config --global user.email 'cline@example.com'
-        git add data/
-        git diff --quiet || git commit -m "Update guide with new data"
-        git push
+        git config --global user.name 'Jacob Booth'
+        git config --global user.email 'contact@jacobbooth.com'
+        
+        # Stage all relevant files
+        git add data/ README.md CHANGELOG.md metrics/
+
+        # Get current date for commit message
+        date=$(date +%Y-%m-%d)
+        
+        # Only commit if there are changes
+        if ! git diff --staged --quiet; then
+          git commit -m "Daily Update: $date" -m "Automated update of Johnson City Guide data and documentation"
+          
+          # Create and push tag
+          git tag -a "update-$date" -m "Daily update for $date"
+          git push origin main --tags
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload backup
+      uses: actions/upload-artifact@v3
+      with:
+        name: data-backup
+        path: data/backup_*
+        retention-days: 7
