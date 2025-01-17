@@ -1,5 +1,14 @@
 # 🌟 Johnson City Guide
 
+## 🌤️ Today's Weather in Johnson City
+
+**Current Weather:** 🌦️ 45°F, Partly Cloudy
+**Forecast:** 🌞 High: 52°F | 🌙 Low: 38°F
+**Humidity:** 65%
+**Source:** [WJHL Weather Center](https://www.wjhl.com/weather/)
+
+_"A crisp winter day perfect for exploring Johnson City's cozy cafes and indoor attractions!"_
+
 Last Updated: 2025-01-17 01:46:01
 
 ![Johnson City Banner](assets/banners/header.png)

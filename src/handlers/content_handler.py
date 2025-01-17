@@ -21,9 +21,49 @@ class ContentHandler:
         self.config = config
         self.logger = logger
 
+    def update_weather_section(self, content: str) -> str:
+        """
+        Update the weather section in README.md.
+        
+        Args:
+            content: Current README content
+            
+        Returns:
+            str: Updated README content
+        """
+        # Example weather data (in production this would come from an API)
+        weather_data = {
+            'temp': 45,
+            'high': 52,
+            'low': 38,
+            'condition': 'Partly Cloudy',
+            'humidity': 65
+        }
+
+        # Format weather section
+        weather_section = f"""## 🌤️ Today's Weather in Johnson City
+
+**Current Weather:** 🌦️ {weather_data['temp']}°F, {weather_data['condition']}
+**Forecast:** 🌞 High: {weather_data['high']}°F | 🌙 Low: {weather_data['low']}°F
+**Humidity:** {weather_data['humidity']}%
+**Source:** [WJHL Weather Center](https://www.wjhl.com/weather/)
+
+_"A crisp winter day perfect for exploring Johnson City's cozy cafes and indoor attractions!"_
+"""
+
+        # Check if weather section exists
+        weather_pattern = r'## 🌤️ Today\'s Weather in Johnson City.*?(?=\n\n|$)'
+        if re.search(weather_pattern, content, re.DOTALL):
+            # Update existing weather section
+            return re.sub(weather_pattern, weather_section.strip(), content, flags=re.DOTALL)
+        else:
+            # Add weather section after title
+            title_pattern = r'(# .+?\n)'
+            return re.sub(title_pattern, f"\\1\n{weather_section}", content, count=1)
+
     def update_readme_timestamp(self) -> bool:
         """
-        Update the timestamp in README.md.
+        Update the timestamp and weather in README.md.
         
         Returns:
             bool: True if update was successful
@@ -36,6 +76,9 @@ class ContentHandler:
 
             with open(readme_path, 'r', encoding='utf-8') as f:
                 content = f.read()
+
+            # Update weather section
+            content = self.update_weather_section(content)
 
             # Look for existing timestamp section
             timestamp_pattern = r'(Last Updated: ).*'
@@ -57,7 +100,7 @@ class ContentHandler:
             with open(readme_path, 'w', encoding='utf-8') as f:
                 f.write(updated_content)
 
-            self.logger.logger.info("Updated README.md timestamp")
+            self.logger.logger.info("Updated README.md timestamp and weather")
             return True
 
         except Exception as e:
