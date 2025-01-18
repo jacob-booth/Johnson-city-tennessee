@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "required": ["growing_zone", "farmers_markets", "planting_calendar", "moon_planting_guide", "last_updated"],
+  "properties": {
+    "growing_zone": {
+      "type": "object",
+      "required": ["zone", "first_frost", "last_frost", "growing_season_days"],
+      "properties": {
+        "zone": { "type": "string" },
+        "first_frost": { "type": "string" },
+        "last_frost": { "type": "string" },
+        "growing_season_days": { "type": "number" }
+      }
+    },
+    "farmers_markets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "location", "schedule"],
+        "properties": {
+          "name": { "type": "string" },
+          "location": { "type": "string" },
+          "schedule": { "type": "string" },
+          "website": { "type": "string" }
+        }
+      }
+    },
+    "planting_calendar": {
+      "type": "object",
+      "required": ["spring", "fall"],
+      "properties": {
+        "spring": {
+          "type": "object",
+          "properties": {
+            "march": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["crop", "plant_date"],
+                "properties": {
+                  "crop": { "type": "string" },
+                  "plant_date": { "type": "string" }
+                }
+              }
+            },
+            "april": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["crop", "plant_date"],
+                "properties": {
+                  "crop": { "type": "string" },
+                  "plant_date": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "fall": {
+          "type": "object",
+          "properties": {
+            "august": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["crop", "plant_date"],
+                "properties": {
+                  "crop": { "type": "string" },
+                  "plant_date": { "type": "string" }
+                }
+              }
+            },
+            "september": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["crop", "plant_date"],
+                "properties": {
+                  "crop": { "type": "string" },
+                  "plant_date": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "moon_planting_guide": {
+      "type": "object",
+      "required": ["waxing_moon", "full_moon", "waning_moon", "new_moon"],
+      "properties": {
+        "waxing_moon": { "type": "array", "items": { "type": "string" } },
+        "full_moon": { "type": "array", "items": { "type": "string" } },
+        "waning_moon": { "type": "array", "items": { "type": "string" } },
+        "new_moon": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "local_wisdom": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "last_updated": { "type": "string" }
+  }
+}

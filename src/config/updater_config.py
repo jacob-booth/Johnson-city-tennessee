@@ -19,7 +19,10 @@ class UpdaterConfig:
                 'restaurants': '/restaurants',
                 'shops': '/shops',
                 'events': '/events',
-                'parks': '/parks'
+                'parks': '/parks',
+                'weather': '/weather/forecast',
+                'moon': '/astronomy/moon',
+                'agriculture': '/agriculture'
             }
         }
 
@@ -37,7 +40,8 @@ class UpdaterConfig:
             'changelog': 'CHANGELOG.md',
             'data_dir': 'data',
             'log_dir': 'logs',
-            'metrics_dir': 'metrics'
+            'metrics_dir': 'metrics',
+            'schemas_dir': 'schemas'
         }
 
         # Update Settings
@@ -45,7 +49,9 @@ class UpdaterConfig:
             'update_frequency': 'daily',
             'min_entries_per_category': 5,
             'max_entries_per_category': 50,
-            'cache_duration': 3600  # 1 hour in seconds
+            'cache_duration': 3600,  # 1 hour in seconds
+            'weather_update_interval': 3600,  # Update weather hourly
+            'moon_update_interval': 86400  # Update moon phases daily
         }
 
         # Monitoring Configuration
@@ -59,7 +65,9 @@ class UpdaterConfig:
         self.required_keys = [
             'YELP_API_KEY',
             'EVENTBRITE_API_KEY',
-            'NPS_API_KEY'
+            'NPS_API_KEY',
+            'OPENWEATHER_API_KEY',
+            'ASTRONOMY_API_KEY'
         ]
 
     def validate_environment(self) -> tuple[bool, list[str]]:
@@ -80,7 +88,7 @@ class UpdaterConfig:
         Get API key for a specific service.
         
         Args:
-            service: Service name (e.g., 'yelp', 'eventbrite', 'nps')
+            service: Service name (e.g., 'yelp', 'eventbrite', 'nps', 'weather', 'astronomy')
             
         Returns:
             str: API key for the service
@@ -88,7 +96,9 @@ class UpdaterConfig:
         key_map = {
             'yelp': 'YELP_API_KEY',
             'eventbrite': 'EVENTBRITE_API_KEY',
-            'nps': 'NPS_API_KEY'
+            'nps': 'NPS_API_KEY',
+            'weather': 'OPENWEATHER_API_KEY',
+            'astronomy': 'ASTRONOMY_API_KEY'
         }
         env_key = key_map.get(service.lower())
         if not env_key:
@@ -105,12 +115,24 @@ class UpdaterConfig:
         Get the full path for a data file.
         
         Args:
-            category: Category name (e.g., 'restaurants', 'shops')
+            category: Category name (e.g., 'restaurants', 'shops', 'agriculture')
             
         Returns:
             str: Full path to the data file
         """
         return os.path.join(self.paths['data_dir'], f"{category}.yml")
+
+    def get_schema_file_path(self, category: str) -> str:
+        """
+        Get the full path for a schema file.
+        
+        Args:
+            category: Category name (e.g., 'restaurants', 'shops', 'agriculture')
+            
+        Returns:
+            str: Full path to the schema file
+        """
+        return os.path.join(self.paths['schemas_dir'], f"{category}.schema.json")
 
     def get_timestamp_format(self) -> str:
         """Get the standard timestamp format for the system."""

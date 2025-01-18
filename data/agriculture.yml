@@ -1,0 +1,67 @@
+last_updated: '2025-01-17 19:07:00'
+
+growing_zone:
+  zone: "6b/7a"
+  first_frost: "October 15"
+  last_frost: "April 15"
+  growing_season_days: 180
+
+farmers_markets:
+  - name: "Johnson City Farmers Market"
+    location: "Downtown Johnson City"
+    schedule: "Wednesday & Saturday, 7am-2pm (April-October)"
+    website: "https://johnsoncityfarmersmarket.org"
+    
+  - name: "Jonesborough Farmers Market"
+    location: "Courthouse Square, Jonesborough"
+    schedule: "Saturday, 8am-12pm (May-October)"
+    website: "https://jonesborough.locallygrown.net"
+
+planting_calendar:
+  spring:
+    march:
+      - crop: "Peas"
+        plant_date: "March 1-15"
+      - crop: "Potatoes"
+        plant_date: "March 15-30"
+      - crop: "Lettuce"
+        plant_date: "March 15-30"
+    april:
+      - crop: "Tomatoes"
+        plant_date: "April 15-30"
+      - crop: "Peppers"
+        plant_date: "April 15-30"
+      - crop: "Beans"
+        plant_date: "April 15-30"
+  fall:
+    august:
+      - crop: "Fall Peas"
+        plant_date: "August 1-15"
+      - crop: "Fall Greens"
+        plant_date: "August 15-30"
+    september:
+      - crop: "Garlic"
+        plant_date: "September 15-30"
+      - crop: "Cover Crops"
+        plant_date: "September 15-30"
+
+moon_planting_guide:
+  waxing_moon:
+    - "Above-ground crops (lettuce, spinach, broccoli)"
+    - "Flowering annuals"
+    - "Fruit trees"
+  full_moon:
+    - "Best time for transplanting"
+    - "Heavy feeding crops"
+  waning_moon:
+    - "Root crops (carrots, potatoes, onions)"
+    - "Bulbs and tubers"
+  new_moon:
+    - "Rest period"
+    - "Soil preparation"
+
+local_wisdom:
+  - "Plant corn when oak leaves are size of squirrel's ear"
+  - "Plant peas on St. Patrick's Day"
+  - "First frost typically follows first goldenrod bloom by 6 weeks"
+  - "Plant potatoes on Good Friday"

@@ -3,6 +3,7 @@ Content management handler for the Johnson City Guide update system.
 """
 import os
 import re
+import json
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 import yaml
@@ -21,50 +22,134 @@ class ContentHandler:
         self.config = config
         self.logger = logger
 
-    def update_weather_section(self, content: str) -> str:
+    def update_almanac_section(self, content: str, weather_data: dict, moon_data: dict) -> str:
         """
-        Update the weather section in README.md.
+        Update the almanac section in README.md.
         
         Args:
             content: Current README content
+            weather_data: Current weather data
+            moon_data: Current moon phase data
             
         Returns:
             str: Updated README content
         """
-        # Example weather data (in production this would come from an API)
-        weather_data = {
-            'temp': 45,
-            'high': 52,
-            'low': 38,
-            'condition': 'Partly Cloudy',
-            'humidity': 65
-        }
+        # Load agricultural data
+        try:
+            with open(self.config.get_data_file_path('agriculture'), 'r', encoding='utf-8') as f:
+                ag_data = yaml.safe_load(f)
+        except Exception as e:
+            self.logger.log_error(e, {'action': 'load_agriculture_data'})
+            ag_data = {}
 
-        # Format weather section
-        weather_section = f"""## 🌤️ Today's Weather in Johnson City
+        # Format current conditions
+        current_temp = weather_data.get('main', {}).get('temp', 'N/A')
+        current_condition = weather_data.get('weather', [{}])[0].get('description', 'N/A')
+        
+        # Get current moon phase
+        moon_phase = moon_data.get('phase', 'N/A')
+        planting_guide = ag_data.get('moon_planting_guide', {}).get(moon_phase.lower().replace(' ', '_'), [])
 
-**Current Weather:** 🌦️ {weather_data['temp']}°F, {weather_data['condition']}
-**Forecast:** 🌞 High: {weather_data['high']}°F | 🌙 Low: {weather_data['low']}°F
-**Humidity:** {weather_data['humidity']}%
-**Source:** [WJHL Weather Center](https://www.wjhl.com/weather/)
+        # Get current season's planting info
+        current_month = datetime.now().strftime('%B').lower()
+        season = 'spring' if datetime.now().month < 7 else 'fall'
+        current_plantings = ag_data.get('planting_calendar', {}).get(season, {}).get(current_month, [])
 
-_"A crisp winter day perfect for exploring Johnson City's cozy cafes and indoor attractions!"_
+        # Format farmers market info
+        markets_today = [
+            market for market in ag_data.get('farmers_markets', [])
+            if datetime.now().strftime('%A') in market.get('schedule', '')
+        ]
+
+        almanac_section = f"""## 🌱 Johnson City Almanac
+
+### 🌤️ Current Weather
+**Temperature:** {current_temp}°F
+**Conditions:** {current_condition}
+**Growing Zone:** {ag_data.get('growing_zone', {}).get('zone', '6b/7a')}
+
+### 🌿 Today's Planting Guide
+**Season:** {season.capitalize()}
+**Current Plantings:**
+{chr(10).join(f"- {plant['crop']}: {plant['plant_date']}" for plant in current_plantings) if current_plantings else "No plantings scheduled for today"}
+
+### 🌙 Moon Phase Guide
+**Current Phase:** {moon_phase}
+**Planting Recommendations:**
+{chr(10).join(f"- {guide}" for guide in planting_guide) if planting_guide else "No specific planting recommendations for current phase"}
+
+### 👨‍🌾 Today's Farmers Markets
+{chr(10).join(f"- {market['name']} at {market['location']}: {market['schedule']}" for market in markets_today) if markets_today else "No markets scheduled for today"}
+
+### 🌾 Local Wisdom
+{chr(10).join(f"- {wisdom}" for wisdom in ag_data.get('local_wisdom', [])[:3])}
+
+_Last Updated: {self.config.format_timestamp()}_
 """
 
-        # Check if weather section exists
-        weather_pattern = r'## 🌤️ Today\'s Weather in Johnson City.*?(?=\n\n|$)'
-        if re.search(weather_pattern, content, re.DOTALL):
-            # Update existing weather section
-            return re.sub(weather_pattern, weather_section.strip(), content, flags=re.DOTALL)
+        # Check if almanac section exists
+        almanac_pattern = r'## 🌱 Johnson City Almanac.*?(?=\n\n## |$)'
+        if re.search(almanac_pattern, content, re.DOTALL):
+            # Update existing almanac section
+            return re.sub(almanac_pattern, almanac_section.strip(), content, flags=re.DOTALL)
         else:
-            # Add weather section after title
-            title_pattern = r'(# .+?\n)'
-            return re.sub(title_pattern, f"\\1\n{weather_section}", content, count=1)
+            # Add almanac section after weather section or title
+            weather_pattern = r'## 🌤️ Today\'s Weather.*?(?=\n\n## |$)'
+            if re.search(weather_pattern, content, re.DOTALL):
+                return re.sub(weather_pattern, lambda m: f"{m.group(0)}\n\n{almanac_section}", content, flags=re.DOTALL)
+            else:
+                title_pattern = r'(# .+?\n)'
+                return re.sub(title_pattern, f"\\1\n{almanac_section}", content, count=1)
 
-    def update_readme_timestamp(self) -> bool:
+    def validate_agriculture_data(self, data: dict) -> Tuple[bool, List[str]]:
         """
-        Update the timestamp and weather in README.md.
+        Validate agriculture data against its schema.
         
+        Args:
+            data: Agriculture data to validate
+            
+        Returns:
+            Tuple[bool, List[str]]: (is_valid, error_messages)
+        """
+        try:
+            schema_path = self.config.get_schema_file_path('agriculture')
+            with open(schema_path, 'r', encoding='utf-8') as f:
+                schema = json.load(f)
+
+            errors = []
+            
+            # Check required sections
+            for section in schema['required']:
+                if section not in data:
+                    errors.append(f"Missing required section: {section}")
+
+            # Validate growing zone
+            if 'growing_zone' in data:
+                for field in ['zone', 'first_frost', 'last_frost', 'growing_season_days']:
+                    if field not in data['growing_zone']:
+                        errors.append(f"Missing field in growing_zone: {field}")
+
+            # Validate farmers markets
+            if 'farmers_markets' in data:
+                for i, market in enumerate(data['farmers_markets']):
+                    for field in ['name', 'location', 'schedule']:
+                        if field not in market:
+                            errors.append(f"Missing field in farmers_market {i}: {field}")
+
+            return len(errors) == 0, errors
+
+        except Exception as e:
+            self.logger.log_error(e, {'action': 'validate_agriculture_data'})
+            return False, [str(e)]
+
+    def update_readme_timestamp(self, weather_data: dict = None, moon_data: dict = None) -> bool:
+        """
+        Update the timestamp and almanac section in README.md.
+        
+        Args:
+            weather_data: Optional current weather data
+            moon_data: Optional current moon phase data
+            
         Returns:
             bool: True if update was successful
         """
@@ -77,18 +162,17 @@ _"A crisp winter day perfect for exploring Johnson City's cozy cafes and indoor 
             with open(readme_path, 'r', encoding='utf-8') as f:
                 content = f.read()
 
-            # Update weather section
-            content = self.update_weather_section(content)
+            # Update almanac section if weather and moon data are provided
+            if weather_data and moon_data:
+                content = self.update_almanac_section(content, weather_data, moon_data)
 
-            # Look for existing timestamp section
+            # Update timestamp
             timestamp_pattern = r'(Last Updated: ).*'
             new_timestamp = f"Last Updated: {self.config.format_timestamp()}"
 
             if re.search(timestamp_pattern, content):
-                # Update existing timestamp
                 updated_content = re.sub(timestamp_pattern, new_timestamp, content)
             else:
-                # Add timestamp after the title
                 title_pattern = r'(# .+?\n)'
                 updated_content = re.sub(
                     title_pattern,
@@ -100,7 +184,7 @@ _"A crisp winter day perfect for exploring Johnson City's cozy cafes and indoor 
             with open(readme_path, 'w', encoding='utf-8') as f:
                 f.write(updated_content)
 
-            self.logger.logger.info("Updated README.md timestamp and weather")
+            self.logger.logger.info("Updated README.md timestamp and almanac section")
             return True
 
         except Exception as e:
@@ -179,7 +263,11 @@ _"A crisp winter day perfect for exploring Johnson City's cozy cafes and indoor 
             if not data:
                 return False, ["Empty data file"]
 
-            # Basic structure validation
+            # Special handling for agriculture.yml
+            if file_path.endswith('agriculture.yml'):
+                return self.validate_agriculture_data(data)
+
+            # Basic structure validation for other files
             if 'Entries' not in data:
                 return False, ["Missing 'Entries' section"]
 

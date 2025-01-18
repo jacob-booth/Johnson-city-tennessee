@@ -39,6 +39,8 @@ jobs:
         YELP_API_KEY: ${{ secrets.YELP_API_KEY }}
         EVENTBRITE_API_KEY: ${{ secrets.EVENTBRITE_API_KEY }}
         NPS_API_KEY: ${{ secrets.NPS_API_KEY }}
+        OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        ASTRONOMY_API_KEY: ${{ secrets.ASTRONOMY_API_KEY }}
         GIT_USERNAME: "Jacob Booth"
         GIT_EMAIL: "contact@jacobbooth.com"
 
